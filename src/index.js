@@ -10,22 +10,27 @@ class Message extends React.Component {
   render method discribes what we want to render into dom
   */
   render() {
+    console.log(this.props);
+    
     return (
       <div>
-        <h1>Hello eveyone</h1>
+        <h1 style={{color: this.props.color}}>{this.props.msg}</h1>
+        <p>I'll check back in {this.props.minutes} minutes</p>
       </div>
     )
   }
 }
 
+// Right now everthing is static what if we want to do this dynamic 
+// for this we will be using props, first step to work with props is to pass the data to
+// message component
 
-
-
-
+// for message if we are passing anyother thing than string then we have to wrap it around {} brackets
 ReactDOM.render(
-  <Message/>,
+  <Message minutes={20} color="blue" msg="How are you doing?"/>,
   document.getElementById('root')
 )
+
 
 /*
 Reason react is so popular is because of it's
