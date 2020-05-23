@@ -1,16 +1,44 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+
+// Creating first component
+// all of the component names should start with capital
+class Message extends React.Component {
+  // All react component have render method
+  /*
+  render method discribes what we want to render into dom
+  */
+  render() {
+    return (
+      <div>
+        <h1>Hello eveyone</h1>
+      </div>
+    )
+  }
+}
+
+
+
+
+
+ReactDOM.render(
+  <Message/>,
+  document.getElementById('root')
+)
+
+/*
+Reason react is so popular is because of it's
+component based structure 
+
+We simply create elements by creating nested components and we
+render these components 
+
+*/  
+
 /*
 Now we are going to specify styles which we want to apply to elements
 */
-
-var style = {
-  backgroundColor: 'orange',
-  color: 'white',
-  fontFamily: 'Arial'
-}
-
 /*
   create element accepts 3 arguments
   1. element we want to create 
@@ -39,20 +67,4 @@ var style = {
   2. where you want to render 
 */
 //This is JSX not HTML
-ReactDOM.render(
-  <div style={style}>
-    <h1 id="heading-element">Hello World!</h1>
-    <p>I'm glad I'm here</p>
-  </div>,
-  document.getElementById('root')
-)
-
-/*
-Reason react is so popular is because of it's
-component based structure 
-
-We simply create elements by creating nested components and we
-render these components 
-
-*/  
 
