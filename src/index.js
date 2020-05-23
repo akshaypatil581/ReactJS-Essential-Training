@@ -15,36 +15,58 @@ let skiData = {
   goal: 100
 }
 
+// Component using function
+// here notice that we don't have access to this because this is not a 
+// class but we have acces to props which we can use without using this
+const SkiDayCounter = (props) => {
+  return (
+    <section>
+      <div>
+        <p>Total Days: {props.total}</p>
+      </div>
+      <div>
+        <p>Powder Days: {props.powder}</p>
+      </div>
+      <div>
+        <p>Backcountry Days: {props.backcountry}</p>
+      </div>
+      <div>
+        <p>Goal Progress: {props.goal}</p>
+      </div>
+    </section>
+  )
+}
+
 // Creating first component
 // all of the component names should start with capital
-class SkiDayCounter extends Component {
-  getPercent = (decimal) => {
-    return decimal * 100 + '%'
-  }
-  calGoalProgress = (total, goal) => {
-    return this.getPercent(total/goal)
-  }
+// class SkiDayCounter extends Component {
+//   getPercent = (decimal) => {
+//     return decimal * 100 + '%'
+//   }
+//   calGoalProgress = (total, goal) => {
+//     return this.getPercent(total/goal)
+//   }
 
-  render() {
-    const {total, powder, backcountry, goal} = this.props;
-    return (
-      <section>
-        <div>
-          <p>Total Days: {total}</p>
-        </div>
-        <div>
-          <p>Powder Days: {powder}</p>
-        </div>
-        <div>
-          <p>Backcountry Days: {backcountry}</p>
-        </div>
-        <div>
-          <p>Goal Progress: {this.calGoalProgress(total, goal)}</p>
-        </div>
-      </section>
-    )
-  }
-}
+//   render() {
+//     const {total, powder, backcountry, goal} = this.props;
+//     return (
+//       <section>
+//         <div>
+//           <p>Total Days: {total}</p>
+//         </div>
+//         <div>
+//           <p>Powder Days: {powder}</p>
+//         </div>
+//         <div>
+//           <p>Backcountry Days: {backcountry}</p>
+//         </div>
+//         <div>
+//           <p>Goal Progress: {this.calGoalProgress(total, goal)}</p>
+//         </div>
+//       </section>
+//     )
+//   }
+// }
 // Right now everthing is static what if we want to do this dynamic 
 // for this we will be using props, first step to work with props is to pass the data to
 // message component
@@ -55,6 +77,10 @@ render(
   document.getElementById('root')
 )
 
+/*
+So far we created react components as ES6 classes but that's not the only way to create 
+classes we can create class/components using JS function as well
+*/
 
 /*
 Reason react is so popular is because of it's
