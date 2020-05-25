@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
+import PropTypes from 'prop-types'
 
 let bookList = [
   {"title": "The Sun Also Rises", "auther": "Ernest Hemingway", "pages": 260},
@@ -142,6 +143,19 @@ class Library extends Component {
 //     )
 //   }
 // }
+// Prop type can be considered as creating meta-data it's better and 
+// centralised way of keeping data at center, this way we are defining default data and we are also checking for it's type,
+// surprisingly this is th sfirst time I have seen type checking in javaScript
+Library.propTypes = {
+  books: PropTypes.array
+}
+
+Book.propTypes = {
+  title: PropTypes.string,
+  author: PropTypes.string,
+  pages: PropTypes.number,
+  freeBookMark: PropTypes.bool
+}
 
 render (
   <Library books={bookList}/>,
